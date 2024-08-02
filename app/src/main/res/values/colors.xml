@@ -4,5 +4,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="button_color">#8400FF</color>
     <color name="fuchsia">#F72585</color>
-
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
 </resources>

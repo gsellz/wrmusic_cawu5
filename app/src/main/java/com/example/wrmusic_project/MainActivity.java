@@ -1,7 +1,6 @@
 package com.example.wrmusic_project;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -9,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 boolean isValid = true;
 
-
                 String username = usernameEt.getText().toString().trim();
                 if (username.isEmpty()) {
                     usernameError.setVisibility(View.VISIBLE);
@@ -61,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
                     usernameError.setVisibility(View.INVISIBLE);
                 }
 
-
                 String password = passwordEt.getText().toString().trim();
                 if (password.isEmpty()) {
                     passwordError.setVisibility(View.VISIBLE);
@@ -71,9 +67,8 @@ public class MainActivity extends AppCompatActivity {
                     passwordError.setVisibility(View.INVISIBLE);
                 }
 
-
                 if (isValid) {
-                    Intent intent = new Intent(MainActivity.this, HomePage.class);
+                    Intent intent = new Intent(MainActivity.this, Cart.class); // Updated to CartActivity
                     intent.putExtra("USERNAME_KEY", username);
                     startActivity(intent);
                 }
@@ -81,5 +76,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
+    public static class CartItem {
+    }
 }
