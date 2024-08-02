@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.wrmusic_project"
-        minSdk = 21 // It's better to use a lower minSdk version if possible for broader compatibility
+        minSdk = 26 // It's better to use a lower minSdk version if possible for broader compatibility
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
@@ -45,5 +45,5 @@ dependencies {
     implementation ("androidx.fragment:fragment:1.5.7")
     implementation ("androidx.viewpager:viewpager:1.0.0")
     implementation ("androidx.core:core-ktx:1.10.0")
-
+    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
 }
