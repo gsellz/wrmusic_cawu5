@@ -39,7 +39,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
         drawerLayout = findViewById(R.id.drawerMenu);
 
-         // ini variable username
+        // ini variable username
         welcomeUser = findViewById(R.id.welcomeUser);
         String username = getIntent().getStringExtra("USERNAME_KEY");
 

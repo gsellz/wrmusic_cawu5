@@ -68,9 +68,10 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (isValid) {
-                    Intent intent = new Intent(MainActivity.this, AboutUs.class); // Updated to CartActivity
+                    Intent intent = new Intent(MainActivity.this, HomePage.class);
                     intent.putExtra("USERNAME_KEY", username);
                     startActivity(intent);
+                    //tes
                 }
             }
         });

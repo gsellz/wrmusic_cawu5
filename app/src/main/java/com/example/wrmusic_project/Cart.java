@@ -5,12 +5,16 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 
 import java.util.Arrays;
 import java.util.List;
@@ -20,19 +24,17 @@ public class Cart extends AppCompatActivity {
     private LinearLayout linearLayout;
     private TextView totalTextView;
     private Button homeButton;
+    private ImageButton backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         linearLayout = findViewById(R.id.cart_list);
         totalTextView = findViewById(R.id.total_text_view);
         homeButton = findViewById(R.id.home_button);
+        backButton = findViewById(R.id.back_icon);
 
         List<CartItem> cartItems = getCartItems();
         populateCartItems(cartItems);
@@ -41,7 +43,15 @@ public class Cart extends AppCompatActivity {
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Cart.this, MainActivity.class); // Adjust as necessary
+                Intent intent = new Intent(Cart.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Cart.this, MainActivity.class);
                 startActivity(intent);
             }
         });
@@ -50,17 +60,23 @@ public class Cart extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            onBackPressed(); // Handle the back button press
+            onBackPressed();
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
     private List<CartItem> getCartItems() {
-        // Using Arrays.asList instead of List.of
         return Arrays.asList(
-                new CartItem(R.drawable.album_image, "Album Title 1", 2, 19.99),
-                new CartItem(R.drawable.album_image, "Album Title 2", 1, 9.99)
+                new CartItem(R.drawable.image1, "Random Access Memories", 2, 10.4),
+                new CartItem(R.drawable.image2, "The Dark Side Of The Moon", 1, 9.99),
+                new CartItem(R.drawable.image3, "Good Kid, M.A.A.d City", 2, 35.7),
+                new CartItem(R.drawable.image4, "Thriller", 3, 11.4),
+                new CartItem(R.drawable.image5, "Rumours", 2, 23.6),
+                new CartItem(R.drawable.image6, "Nevermind", 5, 10.9),
+                new CartItem(R.drawable.image7, "The Dark Side Of The Moon", 2, 17.4),
+                new CartItem(R.drawable.image8, "AM", 1, 30.1),
+                new CartItem(R.drawable.image9, "Mezzanine", 4, 11.9)
         );
     }
 
@@ -68,16 +84,20 @@ public class Cart extends AppCompatActivity {
         linearLayout.removeAllViews();
         for (CartItem item : cartItems) {
             View itemView = getLayoutInflater().inflate(R.layout.cart_item, linearLayout, false);
-            // Set the item data
+
             ImageView imageView = itemView.findViewById(R.id.item_image);
             TextView titleTextView = itemView.findViewById(R.id.item_title);
             TextView quantityTextView = itemView.findViewById(R.id.item_quantity);
             TextView priceTextView = itemView.findViewById(R.id.item_price);
 
-            imageView.setImageResource(item.getImageResId());
+            Glide.with(this)
+                    .load(item.getImageResId())
+                    .transform(new CenterCrop(), new RoundedCorners(50))
+                    .into(imageView);
+
             titleTextView.setText(item.getTitle());
             quantityTextView.setText("Quantity: " + item.getQuantity());
-            priceTextView.setText("Price: $" + String.format("%.2f", item.getPrice()));
+            priceTextView.setText("$ " + String.format("%.2f", item.getPrice()));
 
             linearLayout.addView(itemView);
         }

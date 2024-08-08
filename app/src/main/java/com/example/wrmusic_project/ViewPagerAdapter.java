@@ -1,5 +1,10 @@
 package com.example.wrmusic_project;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -35,6 +40,14 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
+
         return fragmentTitleList.get(position);
+    }
+
+    public View getTabView(Context context, int position) {
+        View view = LayoutInflater.from(context).inflate(R.layout.custom_tab, null);
+        TextView textView = view.findViewById(R.id.tabText);
+        textView.setText(fragmentTitleList.get(position));
+        return view;
     }
 }
