@@ -12,7 +12,7 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start"
     >
-    
+
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -40,22 +40,22 @@
                 android:orientation="horizontal"
                 android:gravity="center_vertical">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Home"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:gravity="center"/>
-                
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Home"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:gravity="center"/>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/outline_shopping_cart_24"
-                android:layout_gravity="end"
-                android:paddingRight="10dp"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/outline_shopping_cart_24"
+                    android:layout_gravity="end"
+                    android:paddingRight="10dp"/>
 
             </LinearLayout>
 
@@ -64,62 +64,62 @@
 
         <!-- Ini Konten  -->
         <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-            android:padding="25dp">
-
-        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/black"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:padding="25dp">
 
-            <TextView
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Welcome,"
-                android:textSize="20sp"
-                android:textColor="@color/white"
-                />
+                android:layout_height="match_parent"
+                android:background="@color/black"
+                android:orientation="vertical"
+                android:gravity="center">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="USERNAME!"
-                android:textSize="24sp"
-                android:textColor="@color/white"
-                android:id="@+id/welcomeUser"
-                />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Welcome,"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Populer"
-                android:textSize="14sp"
-                android:textColor="@color/white"
-                />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="USERNAME!"
+                    android:textSize="24sp"
+                    android:textColor="@color/white"
+                    android:id="@+id/welcomeUser"
+                    />
 
-            <!-- Ini Carousel -->
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/viewPager"
-                android:layout_width="match_parent"
-                android:layout_height="200dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Populer"
+                    android:textSize="14sp"
+                    android:textColor="@color/white"
+                    />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Top"
-                android:textSize="14sp"
-                android:textColor="@color/white"
+                <!-- Ini Carousel -->
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/viewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp" />
 
-                />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Top"
+                    android:textSize="14sp"
+                    android:textColor="@color/white"
 
-        </androidx.appcompat.widget.LinearLayoutCompat>
+                    />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
 
 
-    </ScrollView>
+        </ScrollView>
 
     </LinearLayout>
 
