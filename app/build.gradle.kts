@@ -46,4 +46,6 @@ dependencies {
     implementation ("androidx.viewpager:viewpager:1.0.0")
     implementation ("androidx.core:core-ktx:1.10.0")
     implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
+    implementation("androidx.viewpager2:viewpager2:1.0.0")
 }
