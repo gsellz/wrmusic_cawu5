@@ -46,4 +46,7 @@ dependencies {
     implementation ("androidx.viewpager:viewpager:1.0.0")
     implementation ("androidx.core:core-ktx:1.10.0")
     implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
+    implementation ("androidx.cardview:cardview:1.0.0")
+    implementation ("com.github.bumptech.glide:glide:4.12.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
 }
