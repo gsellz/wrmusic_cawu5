@@ -6,11 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MenuItem;
 import android.widget.TextView;
-import com.example.wrmusic_project.R;
+
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -23,14 +25,22 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
     DrawerLayout drawerLayout;
     Toolbar toolbar;
     NavigationView navigationView;
+//    private ViewFlipper carousel;
+
+    private static final int SLIDE_DELAY_MS = 3000; // Delay in milliseconds
+    private ViewPager2 viewPager;
+    private Handler handler;
+    private Runnable runnable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
-        welcomeUser = findViewById(R.id.welcomeUser);
+        drawerLayout = findViewById(R.id.drawerMenu);
 
+         // ini variable username
+        welcomeUser = findViewById(R.id.welcomeUser);
         String username = getIntent().getStringExtra("USERNAME_KEY");
 
         if (username != null) {
@@ -39,12 +49,22 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             welcomeUser.setText("USERNAME!");
         }
 
-        drawerLayout = findViewById(R.id.drawerMenu);
-        navigationView = findViewById(R.id.nav_view);
-        toolbar = findViewById(R.id.toolbar);
 
+        // ini carousel
+        viewPager = findViewById(R.id.viewPager);
+        int[] images = { R.drawable.image1, R.drawable.image2, R.drawable.image3, R.drawable.image4, R.drawable.image5 };
+        CarouselAdapter adapter = new CarouselAdapter(images);
+        viewPager.setAdapter(adapter);
+
+
+        setupAutoSlide();
+
+        // ini toolbar
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // ini navigation
+        navigationView = findViewById(R.id.nav_view);
         navigationView.bringToFront();
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawerLayout, toolbar,
@@ -55,7 +75,27 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
         navigationView.setNavigationItemSelectedListener(this);
     }
+    private void setupAutoSlide() {
+        handler = new Handler();
+        runnable = new Runnable() {
+            @Override
+            public void run() {
+                int currentItem = viewPager.getCurrentItem();
+                int nextItem = (currentItem + 1) % viewPager.getAdapter().getItemCount();
+                viewPager.setCurrentItem(nextItem, true);
+                handler.postDelayed(this, SLIDE_DELAY_MS);
+            }
+        };
+        handler.postDelayed(runnable, SLIDE_DELAY_MS);
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (handler != null && runnable != null) {
+            handler.removeCallbacks(runnable);
+        }
+    }
     @Override
     public void onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {

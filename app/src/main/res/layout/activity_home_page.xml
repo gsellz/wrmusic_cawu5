@@ -10,7 +10,7 @@
     android:id="@+id/drawerMenu"
     tools:context=".HomePage"
     android:fitsSystemWindows="true"
-
+    tools:openDrawer="start"
     >
     
     <com.google.android.material.navigation.NavigationView
@@ -46,8 +46,9 @@
                 android:layout_weight="1"
                 android:text="Home"
                 android:textColor="@color/white"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 android:gravity="center"/>
+                
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -64,7 +65,8 @@
         <!-- Ini Konten  -->
         <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+            android:padding="25dp">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -77,8 +79,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Welcome,"
-                android:textSize="20dp"
-                android:paddingLeft="20dp"
+                android:textSize="20sp"
                 android:textColor="@color/white"
                 />
 
@@ -86,16 +87,33 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="USERNAME!"
-                android:textSize="24dp"
-                android:paddingLeft="20dp"
+                android:textSize="24sp"
                 android:textColor="@color/white"
                 android:id="@+id/welcomeUser"
                 />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="200dp"
-                android:src="@drawable/logo_sementara"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Populer"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                />
+
+            <!-- Ini Carousel -->
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="200dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Top"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+
+                />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
