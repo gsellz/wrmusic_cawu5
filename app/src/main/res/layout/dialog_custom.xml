@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="400dp"
+    android:layout_height="230dp"
+    android:padding="22dp"
+    android:background="@color/black"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/dialogTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Oops!"
+        android:textColor="@color/fuchsia"
+        android:textSize="29sp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/dialogMessage"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:text="Your Quantity is still empty or less than one!"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textAlignment="center"
+        android:fontFamily="@font/montserrat_regular"
+        android:layout_below="@id/dialogTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"/>
+
+    <Button
+        android:id="@+id/btnDialogOk"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:text="Ok, got it!"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:layout_below="@id/dialogMessage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"/>
+</RelativeLayout>
