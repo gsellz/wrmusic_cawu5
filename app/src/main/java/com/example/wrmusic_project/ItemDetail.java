@@ -1,6 +1,8 @@
 package com.example.wrmusic_project;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -8,7 +10,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -121,20 +122,11 @@ public class ItemDetail extends AppCompatActivity {
                     }, 3000L);
                     // Tambahkan item ke keranjang di sini jika diperlukan
                 } else {
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            Toast toast = Toast.makeText(ItemDetail.this, "Your Quantity is still empty or less than one!", Toast.LENGTH_SHORT);
-                            View view = toast.getView();
-                            if (view != null) {
-                                view.getBackground().setAlpha(200);
-                            }
-                            toast.show();
-                        }
-                    });
+                    showCustomDialog();
                 }
             }
         });
+
 
         // Tambahkan listener untuk tombol kembali
         floatingButton.setOnClickListener(new View.OnClickListener() {
@@ -156,5 +148,28 @@ public class ItemDetail extends AppCompatActivity {
 
     private void updateQuantity() {
         textQuantity.setText(String.valueOf(quantity));
+    }
+
+    private void showCustomDialog() {
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.dialog_custom);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
+        TextView dialogTitle = dialog.findViewById(R.id.dialogTitle);
+        TextView dialogMessage = dialog.findViewById(R.id.dialogMessage);
+        Button btnDialogOk = dialog.findViewById(R.id.btnDialogOk);
+
+        // Set the text programmatically if needed
+        dialogTitle.setText("Oops!");
+        dialogMessage.setText("Your Quantity is still empty or less than one!");
+
+        btnDialogOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss(); // Close the dialog
+            }
+        });
+
+        dialog.show();
     }
 }
