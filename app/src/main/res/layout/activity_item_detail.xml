@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="17dp"
+    android:background="@drawable/piringan_black"
+    android:scaleType="centerCrop">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_alignParentTop="true"
+        android:id="@+id/frame_image">
+
+        <ImageView
+            android:id="@+id/detail_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+
+        <ImageButton
+            android:id="@+id/floating_button"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:scaleType="centerCrop"
+            android:layout_gravity="start|top"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="17dp"
+            android:src="@drawable/back_button_black"
+            android:background="@android:color/transparent"/>
+
+        <ImageButton
+            android:id="@+id/floating_cart"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:scaleType="centerCrop"
+            android:layout_gravity="end|top"
+            android:layout_marginEnd="17dp"
+            android:layout_marginTop="17dp"
+            android:src="@drawable/cart_button_black"
+            android:background="@android:color/transparent"/>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_title_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="17dp"
+        android:layout_below="@+id/frame_image">
+
+        <TextView
+            android:id="@+id/detail_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textSize="20sp"
+            android:textColor="@color/fuchsia" />
+
+        <TextView
+            android:id="@+id/detail_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:fontFamily="@font/montserrat_regular"
+            android:textColor="@color/fuchsia"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/detail_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear_title_price"
+        android:fontFamily="@font/montserrat_light"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:paddingLeft="17dp"
+        android:paddingRight="17dp"
+        android:paddingBottom="17dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/linear_artist"
+        android:layout_below="@+id/detail_description"
+        android:paddingLeft="17dp"
+        android:paddingRight="17dp"
+        android:paddingBottom="17dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Artist            : "
+            android:fontFamily="@font/montserrat_light"
+            android:textSize="16sp"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/detail_artist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_light"
+            android:textSize="16sp"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/linear_genre"
+        android:layout_below="@id/linear_artist"
+        android:paddingLeft="17dp"
+        android:paddingRight="17dp"
+        android:paddingBottom="17dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Genre           : "
+            android:fontFamily="@font/montserrat_light"
+            android:textSize="16sp"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/detail_genre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_light"
+            android:textSize="16sp"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/linear_track_count"
+        android:layout_below="@id/linear_genre"
+        android:paddingLeft="17dp"
+        android:paddingRight="17dp"
+        android:paddingBottom="17dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tracks          : "
+            android:fontFamily="@font/montserrat_light"
+            android:textSize="16sp"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/detail_track_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_light"
+            android:textSize="16sp"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/detail_add_to_cart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:paddingLeft="17dp"
+        android:paddingRight="17dp">
+
+        <ImageButton
+            android:id="@+id/button_decrease"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/minus_button"
+            android:background="@android:color/transparent"/>
+
+<!--        <TextView-->
+<!--            android:id="@+id/text_quantity"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="1"-->
+<!--            android:textSize="18sp"-->
+<!--            android:fontFamily="@font/montserrat_semibold"-->
+<!--            android:paddingLeft="30dp"-->
+<!--            android:paddingRight="30dp"-->
+<!--            android:textColor="@color/white"/>-->
+
+        <EditText
+            android:id="@+id/text_quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textSize="18sp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:textColor="@color/white"/>
+
+        <ImageButton
+            android:id="@+id/button_increase"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center"
+            android:layout_marginEnd="15dp"
+            android:src="@drawable/plus_button"
+            android:background="@android:color/transparent"/>
+
+        <Button
+            android:id="@+id/button_add_to_cart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+ Add to Cart"
+            android:textSize="14sp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+</RelativeLayout>

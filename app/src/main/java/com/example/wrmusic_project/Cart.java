@@ -43,7 +43,7 @@ public class Cart extends AppCompatActivity {
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Cart.this, MainActivity.class);
+                Intent intent = new Intent(Cart.this, HomePage.class);
                 startActivity(intent);
             }
         });
@@ -51,8 +51,7 @@ public class Cart extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Cart.this, MainActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
     }

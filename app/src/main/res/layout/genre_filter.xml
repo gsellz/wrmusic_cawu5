@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/black" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_all"
+            style="@style/CapsuleButton"
+            android:text="All"/>
+
+        <Button
+            android:id="@+id/btn_rock"
+            style="@style/CapsuleButton"
+            android:text="Rock" />
+
+        <Button
+            android:id="@+id/btn_electronic"
+            style="@style/CapsuleButton"
+            android:text="Electronic" />
+
+        <Button
+            android:id="@+id/btn_pop"
+            style="@style/CapsuleButton"
+            android:text="Pop" />
+
+        <Button
+            android:id="@+id/btn_country"
+            style="@style/CapsuleButton"
+            android:text="Country" />
+
+        <Button
+            android:id="@+id/btn_jazz"
+            style="@style/CapsuleButton"
+            android:text="Jazz"/>
+
+        <Button
+            android:id="@+id/btn_funk"
+            style="@style/CapsuleButton"
+            android:text="Funk"/>
+    </LinearLayout>
+</HorizontalScrollView>

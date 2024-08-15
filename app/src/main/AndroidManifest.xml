@@ -13,6 +13,15 @@
         android:theme="@style/Theme.Wrmusic_project"
         tools:targetApi="31">
         <activity
+            android:name=".ItemDetail"
+            android:exported="false" />
+        <activity
+            android:name=".ItemPage"
+            android:exported="false" />
+        <activity
+            android:name=".Item"
+            android:exported="false" />
+        <activity
             android:name=".CartItem"
             android:exported="false" />
         <activity
