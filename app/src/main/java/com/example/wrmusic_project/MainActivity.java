@@ -2,6 +2,7 @@ package com.example.wrmusic_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -30,10 +31,10 @@ public class MainActivity extends AppCompatActivity {
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 switch (motionEvent.getAction()){
                     case MotionEvent.ACTION_DOWN:
-                        view.setAlpha(0.8f);
+                        view.setAlpha(1.0f);
                         return false;
                     case MotionEvent.ACTION_UP:
-                        view.setAlpha(1.0f);
+                        view.setAlpha(0.8f);
                         return false;
                 }
                 return false; // Allow OnClickListener to handle the click
@@ -69,12 +70,19 @@ public class MainActivity extends AppCompatActivity {
 
                 if (isValid) {
                     Intent intent = new Intent(MainActivity.this, HomePage.class);
-                    intent.putExtra("USERNAME_KEY", username);
+//                    intent.putExtra("USERNAME_KEY", username);
+                    SharedPreferences sharedPref = getSharedPreferences("user_prefs", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putString("username_key", username);
+                    editor.apply();
                     startActivity(intent);
                     //tes
                 }
             }
         });
+
+
+
     }
 
     public static class CartItem {

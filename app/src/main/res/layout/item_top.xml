@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/rankTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:fontFamily="@font/montserrat_semibold"
+        android:textSize="16sp"
+        android:layout_marginRight="16dp"
+        android:textColor="@color/white"
+        android:layout_gravity="center" />
+
+    <ImageView
+        android:id="@+id/itemImage"
+        android:layout_width="76dp"
+        android:layout_height="76dp"
+        android:layout_marginRight="16dp"
+        android:src="@drawable/ic_launcher_background"
+        android:background="?attr/selectableItemBackgroundBorderless"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/itemTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:fontFamily="@font/montserrat_regular"
+            android:textColor="@color/fuchsia"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/itemDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Artist"
+            android:fontFamily="@font/montserrat_light"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:ellipsize="end"
+            android:maxLines="1"/>
+
+    </LinearLayout>
+
+</LinearLayout>
